@@ -1,5 +1,7 @@
 #include <unp.h>
 
+#define MAXLINE 1024
+
 void str_echo(int sockfd)
 {
 	ssize_t n;
