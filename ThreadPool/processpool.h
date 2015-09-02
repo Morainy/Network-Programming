@@ -233,7 +233,7 @@ void processpool<T>::run_child()
 				}
 			}
 			else if((sockfd == sig_pipefd[0]) && (events[i].events & EPOLLIN)){
-				int sig;
+				//int sig;
 				char signals[1024];
 				ret = recv(sig_pipefd[0] , signals , sizeof(signals) , 0);
 				if(ret < 0){

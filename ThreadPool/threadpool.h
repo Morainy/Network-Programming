@@ -60,6 +60,11 @@
  	}
  	for(int i = 0 ; i < thread_number ; i++){
  		printf("Creat the %dth thread\n", i);
+		//在这一步中pthread_create函数的第三个参数必须为静态函数，而要在一个静态函数中
+		//使用类的动态成员（包括成员函数与成员变量）只能通过以下两种方法实现
+		//（1）通过类的静态对象来调用
+		//（2）将类的对象作为参数传递给该静态函数，然后在静态函数中引用这个对象，并调用其动态方法
+		//所以在调用的时候传入了this指针作为参数
  		if(pthread_create(m_threads+i , NULL , worker , this) != 0){
  			delete []m_threads;
  			throw std::exception();
